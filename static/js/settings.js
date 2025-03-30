@@ -671,6 +671,8 @@ function settings_toast_success(message) {
 
 // On page load...
 $(document).ready(function() {
+	// Hide toast
+	$('#notifyToast').toast('hide');
 	// Setup Color Picker for all elements whose id starts with 'clrpck_'
 	$(function () {
 		$('[id^="clrpck_"]').colorpicker();
