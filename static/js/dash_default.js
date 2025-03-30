@@ -1072,6 +1072,9 @@ function dash_toast_success(message) {
 
 // Main
 $(document).ready(function(){
+	// Hide toast
+	$('#notifyToast').toast('hide');
+	
 	// Setup Listeners 
 	$('#reloadPage').click(function() {
 		// Reload page when server side changes detected. 
