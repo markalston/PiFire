@@ -18,7 +18,7 @@
  PID controller based on proportional band in standard PID form https://en.wikipedia.org/wiki/PID_controller#Ideal_versus_standard_PID_form
    u   = Kp (e(t)+ 1/Ti INT + Td de/dt) = controller output
   PB   = Proportional Band as percentage of setpoint
-  Kp   = Proportional Gain = 1/(PB*Setpoint)
+  Kp   = Proportional Gain = 1/((PB/100)*Setpoint)
   Ti   = Integration Time constant
   Td   = Derivative Time Constant
   de   = Change in Error
@@ -78,8 +78,8 @@ class Controller(ControllerBase):
 		if self.pb == 0 or self.set_point == 0:
 			self.kp = 0
 		else:
-			self.kp = -1 / (self.pb * self.set_point)
-		if ti == 0:
+			self.kp = -1 / ((self.pb / 100) * self.set_point)
+		if self.ti == 0:
 			self.ki = 0
 		else:
 			self.ki = self.kp / self.ti
